@@ -38,10 +38,56 @@
         .hero-btns { display: flex; gap: 1rem; margin-bottom: 2rem; }
         .btn-secondary { border: 1px solid var(--border); color: var(--text-main); padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
         
-        .hero-stats { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); }
-        .stat-item { margin-bottom: 1rem; }
-        .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
-        .stat-desc { color: var(--text-muted); font-size: 0.9rem; }
+        /* Real Instagram Mobile Mockup Styling */
+        .instagram-mobile-mockup {
+            background: #000;
+            border: 3px solid #334155;
+            border-radius: 28px;
+            padding: 12px;
+            max-width: 320px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 15px rgba(2, 132, 199, 0.3);
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            position: relative;
+        }
+
+        .phone-header { display: flex; justify-content: space-between; align-items: center; padding: 2px 10px 8px; }
+        .phone-notch { width: 80px; height: 10px; background: #1e293b; border-radius: 10px; margin: 0 auto; }
+        .phone-time { font-size: 0.75rem; color: #94a3b8; font-weight: 600; }
+
+        .ig-post-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; }
+        .ig-user-info { display: flex; align-items: center; gap: 8px; }
+        .ig-avatar { width: 32px; height: 32px; border-radius: 50%; overflow: hidden; border: 1.5px solid #e1306c; }
+        .ig-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .ig-user-details { display: flex; flex-direction: column; }
+        .ig-username { font-size: 0.8rem; font-weight: 700; color: #fff; }
+        .blue-tick { color: #3897f0; font-size: 0.75rem; }
+        .ig-location { font-size: 0.65rem; color: #94a3b8; }
+        .ig-menu { color: #94a3b8; font-size: 0.8rem; cursor: pointer; }
+
+        .ig-post-image { position: relative; border-radius: 6px; overflow: hidden; margin: 6px 0; }
+        .ig-post-image img { width: 100%; height: 250px; object-fit: cover; display: block; }
+        .ig-reach-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(2, 132, 199, 0.9);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+
+        .ig-post-actions { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.9rem; }
+        .ig-icons-left { display: flex; gap: 10px; }
+
+        .ig-post-stats { font-size: 0.75rem; text-align: left; line-height: 1.3; }
+        .ig-likes { margin-bottom: 3px; }
+        .ig-caption { color: #e2e8f0; margin-bottom: 4px; }
+        .ig-comments-count { color: #94a3b8; margin-bottom: 2px; }
+        .ig-time-ago { color: #64748b; font-size: 0.6rem; letter-spacing: 0.5px; }
 
         /* Sections General */
         section { padding: 4rem 5%; max-width: 1300px; margin: 0 auto; }
@@ -56,7 +102,7 @@
         .service-card h3 { margin: 1rem 0 0.5rem; font-size: 1.2rem; }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* Showcase Sections (Video, Graphics, Photography) */
+        /* Showcase Sections */
         .media-block { margin-bottom: 3rem; }
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); background: #000; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
@@ -110,15 +156,48 @@
                 <a href="#portfolio" class="btn-secondary">View Political Portfolio</a>
             </div>
         </div>
-        <div class="hero-stats">
-            <div class="stat-item">
-                <div class="stat-num">10 Lakh+</div>
-                <div class="stat-desc">Organic Monthly Reach per Constituency</div>
+
+        <!-- Real Instagram Mobile Mockup in Hero -->
+        <div class="instagram-mobile-mockup">
+            <div class="phone-header">
+                <div class="phone-notch"></div>
+                <div class="phone-time">09:41</div>
             </div>
-            <hr style="border-color: var(--border); margin: 1rem 0;">
-            <div class="stat-item">
-                <div class="stat-num">High Voter Engagement</div>
-                <div class="stat-desc">Targeted Micro-Campaigning on Meta & YouTube</div>
+
+            <div class="ig-post-header">
+                <div class="ig-user-info">
+                    <div class="ig-avatar">
+                        <img src="myprofile.jpg" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80'" alt="Leader Profile">
+                    </div>
+                    <div class="ig-user-details">
+                        <span class="ig-username">leader_official <span class="blue-tick">✓</span></span>
+                        <span class="ig-location">Constituency Campaign</span>
+                    </div>
+                </div>
+                <div class="ig-menu">•••</div>
+            </div>
+
+            <div class="ig-post-image">
+                <img src="mypost.jpg" onerror="this.src='https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=600&q=80'" alt="Campaign Post">
+                <div class="ig-reach-badge">10L+ Reach Generated</div>
+            </div>
+
+            <div class="ig-post-actions">
+                <div class="ig-icons-left">
+                    <span class="ig-icon">❤️</span>
+                    <span class="ig-icon">💬</span>
+                    <span class="ig-icon">✈️</span>
+                </div>
+                <div class="ig-icon-right">🔖</div>
+            </div>
+
+            <div class="ig-post-stats">
+                <div class="ig-likes">Liked by <b>youth_voters</b> and <b>48,290 others</b></div>
+                <div class="ig-caption">
+                    <b>leader_official</b> जन-सेवा और क्षेत्र के सर्वांगीण विकास के लिए समर्पित। जुड़े हमारे डिजिटल अभियान से... 👇
+                </div>
+                <div class="ig-comments-count">View all 1,420 comments</div>
+                <div class="ig-time-ago">2 HOURS AGO</div>
             </div>
         </div>
     </section>
@@ -153,7 +232,7 @@
         </div>
     </section>
 
-    <!-- Portfolio Showcase (Video, Graphics, Photography) -->
+    <!-- Portfolio Showcase -->
     <section id="portfolio">
         <div class="section-title">
             <span>// MULTIMEDIA SHOWCASE</span>
@@ -164,7 +243,6 @@
         <div class="media-block">
             <h3 style="margin-bottom: 1rem;">1. Campaign Showreel & Rally Highlights</h3>
             <div class="video-container">
-                <!-- Replace VIDEO_ID with your YouTube Video ID or Showreel URL -->
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Campaign Showreel" allowfullscreen></iframe>
             </div>
         </div>
@@ -252,7 +330,7 @@
         <div class="contact-box">
             <h2>Ready to Elevate Your Digital Presence?</h2>
             <p style="color:var(--text-muted); margin: 1rem 0 2rem;">Get in touch with us confidentially for end-to-end political PR and digital campaign management.</p>
-            <a href="https://wa.me/918544157071?text=Hello%20Vscan%20Alliance,%20I%20want%20to%20discuss%20a%20political%20digital%20campaign." target="_blank" class="btn-cta" style="font-size:1.1rem; padding: 0.8rem 2rem;">Chat on WhatsApp Direct →</a>
+            <a href="https://wa.me/919999999999?text=Hello%20Vscan%20Alliance,%20I%20want%20to%20discuss%20a%20political%20digital%20campaign." target="_blank" class="btn-cta" style="font-size:1.1rem; padding: 0.8rem 2rem;">Chat on WhatsApp Direct →</a>
         </div>
     </section>
 
@@ -263,4 +341,4 @@
     </footer>
 
 </body>
-  </html>
+</html>
