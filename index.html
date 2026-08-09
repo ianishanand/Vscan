@@ -183,7 +183,7 @@
                         <div class="ig-avatar">
                             <img src="myprofile.jpg" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80'" alt="Leader">
                         </div>
-                        <span class="ig-username">leader_official <span class="blue-tick">✓</span></span>
+                        <span class="ig-username">ianishanand <span class="blue-tick">✓</span></span>
                     </div>
                 </div>
                 <div class="ig-post-image">
@@ -342,41 +342,4 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn-submit">Send via WhatsApp →</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 Vscan Alliance. All rights reserved.</p>
-        <p style="color: var(--primary); margin-top:0.4rem; font-family: monospace;">BUILT FOR SOCIAL MEDIA HANDLING</p>
-    </footer>
-
-    <script>
-        function playSelectVideo(videoSrc, element) {
-            var player = document.getElementById('mainVideoPlayer');
-            var source = document.getElementById('videoSource');
-            source.src = videoSrc;
-            player.load();
-            player.play();
-
-            var btns = document.querySelectorAll('.playlist-btn');
-            btns.forEach(function(btn) { btn.classList.remove('active'); });
-            element.classList.add('active');
-        }
-
-        // Send Form Data directly to WhatsApp Message
-        function sendWhatsAppBooking(e) {
-            e.preventDefault();
-            var name = document.getElementById('clientName').value;
-            var contact = document.getElementById('clientContact').value;
-            var service = document.getElementById('serviceSelected').value;
-
-            var phoneNum = "919999999999"; // Change with your real WhatsApp number
-            var message = `Hello Vscan Alliance,%0A%0AI want to book campaign strategy:%0A- *Name:* ${name}%0A- *Contact:* ${contact}%0A- *Service Needed:* ${service}`;
-
-            window.open(`https://wa.me/${phoneNum}?text=${message}`, '_blank');
-        }
-    </script>
-</body>
-</html>
+                <button type="submit" class="btn-
