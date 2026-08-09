@@ -20,12 +20,19 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; min-height: 100vh; overflow-x: hidden; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; min-height: 100vh; }
 
         @keyframes floatMobile {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-12px); }
             100% { transform: translateY(0px); }
+        }
+
+        /* Glowing Motion Pulse Animation for Submit Button */
+        @keyframes buttonGlowPulse {
+            0% { box-shadow: 0 0 10px rgba(37, 99, 235, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 0 25px rgba(37, 99, 235, 0.85); transform: scale(1.02); }
+            100% { box-shadow: 0 0 10px rgba(37, 99, 235, 0.4); transform: scale(1); }
         }
 
         /* Navigation */
@@ -109,49 +116,65 @@
 
         .nda-box { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); padding: 1.2rem; border-radius: 8px; margin: 2rem 0; text-align: center; color: var(--accent); font-weight: 600; }
 
-        /* Responsive Contact Section */
-        .contact-section { padding: 4rem 5% 6rem; max-width: 1250px; margin: 0 auto; height: auto; }
+        /* Fixed Contact & Booking Section */
+        .contact-section { padding: 4rem 5% 6rem; max-width: 1250px; margin: 0 auto; display: block; }
         .contact-header { margin-bottom: 2.5rem; }
         .contact-header span { color: var(--primary); font-size: 0.9rem; font-weight: 700; display: block; margin-bottom: 0.5rem; text-transform: uppercase; }
         .contact-header h2 { font-size: 2.8rem; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Times New Roman', serif; }
         .contact-header p { color: var(--text-muted); max-width: 680px; font-size: 1.05rem; }
 
-        .contact-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; align-items: start; }
+        .contact-details-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; margin-top: 2rem; align-items: start; }
         
         .contact-info-list { display: flex; flex-direction: column; gap: 1.8rem; }
         .info-group label { color: var(--text-muted); font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 700; display: block; margin-bottom: 0.3rem; text-transform: uppercase; }
         .info-group p, .info-group a { font-size: 1.1rem; color: var(--text-main); font-weight: 600; text-decoration: none; }
         .info-group a:hover { color: #38bdf8; }
 
-        /* Form Responsive Design */
-        .booking-form { display: flex; flex-direction: column; gap: 1.2rem; background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); height: auto; }
+        /* Form Controls & Dropdown Styling */
+        .booking-form { display: flex; flex-direction: column; gap: 1.2rem; background: var(--bg-card); padding: 2.2rem; border-radius: 14px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
         .form-group label { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
-        .form-control { background: var(--input-bg); border: 1px solid var(--border); padding: 0.9rem 1rem; border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none; transition: 0.3s; width: 100%; }
-        .form-control:focus { border-color: var(--primary); }
-        select.form-control { cursor: pointer; }
+        
+        .form-control { 
+            background: var(--input-bg); 
+            border: 1.5px solid var(--border); 
+            padding: 0.9rem 1rem; 
+            border-radius: 8px; 
+            color: #fff; 
+            font-size: 0.95rem; 
+            outline: none; 
+            transition: 0.3s; 
+            width: 100%; 
+            display: block;
+        }
+        .form-control:focus { border-color: var(--primary); box-shadow: 0 0 10px rgba(37, 99, 235, 0.3); }
+        select.form-control { cursor: pointer; color: #fff; background-color: var(--input-bg); }
+        select.form-control option { background-color: #0f172a; color: #fff; padding: 10px; }
 
-        /* Full Submit Button */
+        /* Motion Pulse Animated Submit Button */
         .btn-submit { 
-            background: #2563eb; 
+            background: linear-gradient(135deg, #2563eb, #1d4ed8); 
             color: #ffffff; 
             padding: 1.1rem 1.5rem; 
             border-radius: 8px; 
-            border: none; 
+            border: 1px solid #3b82f6; 
             font-weight: 700; 
             font-size: 1rem; 
             cursor: pointer; 
-            transition: 0.3s; 
-            margin-top: 0.8rem;
+            margin-top: 1rem;
             display: block;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            animation: buttonGlowPulse 3s infinite ease-in-out;
+            transition: all 0.3s ease;
         }
-        .btn-submit:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6); }
+        .btn-submit:hover { 
+            background: #1e40af; 
+            transform: scale(1.03) translateY(-2px); 
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.7); 
+        }
 
         footer { border-top: 1px solid var(--border); text-align: center; padding: 2.5rem 5%; color: var(--text-muted); font-size: 0.85rem; margin-top: 3rem; }
 
-        /* Mobile & Laptop Responsive Tweaks */
         @media (max-width: 850px) {
             .hero { grid-template-columns: 1fr; text-align: center; }
             .hero h1 { font-size: 2.1rem; }
@@ -312,7 +335,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact & Booking Section -->
     <section class="contact-section" id="contact">
         <div class="contact-header">
             <span>CONTACT</span>
@@ -321,32 +344,13 @@
         </div>
 
         <div class="contact-details-grid">
+            <!-- Contact Details -->
             <div class="contact-info-list">
                 <div class="info-group">
                     <label>WHATSAPP</label>
-                    <p><a href="https://wa.me/91854415707X" target="_blank">+91 854415707X</a></p>
+                    <p><a href="https://wa.me/9185441570XX" target="_blank">+91 85441570XX</a></p>
                 </div>
                 <div class="info-group">
                     <label>EMAIL</label>
                     <p><a href="mailto:hello@vscanalliance.com">hello@vscanalliance.com</a></p>
                 </div>
-                <div class="info-group">
-                    <label>INSTAGRAM</label>
-                    <p><a href="https://instagram.com/vscanalliance" target="_blank">@vscanalliance</a></p>
-                </div>
-            </div>
-
-            <form class="booking-form" onsubmit="sendWhatsAppBooking(event)">
-                <div class="form-group">
-                    <label>Your name</label>
-                    <input type="text" id="clientName" class="form-control" placeholder="Full name" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Phone or email</label>
-                    <input type="text" id="clientContact" class="form-control" placeholder="How we reach you" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Service needed</label>
-                    <select id="service
