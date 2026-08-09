@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vscan Alliance | Political Digital PR & Campaign Media</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #22c55e;
+            --border: #334155;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background: rgba(15, 23, 42, 0.9); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+        .logo { font-size: 1.4rem; font-weight: 800; color: var(--text-main); letter-spacing: 0.5px; }
+        .logo span { color: var(--primary); }
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 2rem; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--text-main); }
+        .btn-cta { background: var(--primary); color: #fff; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+        .btn-cta:hover { background: var(--primary-hover); }
+
+        /* Hero Section */
+        .hero { padding: 5rem 5% 4rem; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; max-width: 1300px; margin: 0 auto; }
+        .badge { display: inline-block; background: rgba(2, 132, 199, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1.2rem; border: 1px solid rgba(2, 132, 199, 0.3); }
+        .hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.2rem; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; }
+        .hero-btns { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .btn-secondary { border: 1px solid var(--border); color: var(--text-main); padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
+        
+        .hero-stats { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); }
+        .stat-item { margin-bottom: 1rem; }
+        .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
+        .stat-desc { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Sections General */
+        section { padding: 4rem 5%; max-width: 1300px; margin: 0 auto; }
+        .section-title { margin-bottom: 2.5rem; }
+        .section-title span { color: var(--primary); font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; display: block; margin-bottom: 0.5rem; }
+        .section-title h2 { font-size: 2rem; font-weight: 700; }
+
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .service-card { background: var(--bg-card); padding: 2rem; border-radius: 10px; border: 1px solid var(--border); transition: 0.3s; }
+        .service-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .service-card h3 { margin: 1rem 0 0.5rem; font-size: 1.2rem; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Showcase Sections (Video, Graphics, Photography) */
+        .media-block { margin-bottom: 3rem; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); background: #000; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .media-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+        .media-card img { width: 100%; height: 220px; object-fit: cover; }
+        .media-card .info { padding: 1rem; }
+
+        /* Process Grid */
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .process-step { background: var(--bg-card); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--primary); }
+        .step-num { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; }
+
+        /* NDA Box */
+        .nda-box { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); padding: 1.5rem; border-radius: 8px; margin: 2rem 0; text-align: center; color: var(--accent); font-weight: 600; }
+
+        /* Contact & Footer */
+        .contact-box { background: var(--bg-card); padding: 3rem; border-radius: 12px; border: 1px solid var(--border); text-align: center; }
+        footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem 5%; color: var(--text-muted); font-size: 0.9rem; margin-top: 3rem; }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav>
+        <div class="logo">VSCAN <span>ALLIANCE</span></div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#portfolio">Showcase</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="https://wa.me/919999999999?text=Hello%20Vscan%20Alliance,%20I%20want%20to%20discuss%20a%20political%20digital%20campaign." target="_blank" class="btn-cta">WhatsApp Strategy Call</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <span class="badge">POLITICAL DIGITAL CAMPAIGN & PR DIVISION</span>
+            <h1>We Build Winning <span>Digital Narratives</span> for Political Leaders.</h1>
+            <p>Vscan Alliance provides 100% confidential and result-oriented social media management, narrative building, micro-targeted ad campaigns, and online reputation management for political leaders and parties.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/919999999999" target="_blank" class="btn-cta">Book Confidential Strategy Call →</a>
+                <a href="#portfolio" class="btn-secondary">View Political Portfolio</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-num">10 Lakh+</div>
+                <div class="stat-desc">Organic Monthly Reach per Constituency</div>
+            </div>
+            <hr style="border-color: var(--border); margin: 1rem 0;">
+            <div class="stat-item">
+                <div class="stat-num">High Voter Engagement</div>
+                <div class="stat-desc">Targeted Micro-Campaigning on Meta & YouTube</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-title">
+            <span>// OUR SPECIALIZED SERVICES</span>
+            <h2>Dedicated Political Digital PR Solutions</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <span style="color:var(--primary); font-weight:bold;">01</span>
+                <h3>Narrative & Content Design</h3>
+                <p>Speech highlights, development work infographics, manifesto reels, festival posters, and regional dialect content customization.</p>
+            </div>
+            <div class="service-card">
+                <span style="color:var(--primary); font-weight:bold;">02</span>
+                <h3>Personal Branding & Community</h3>
+                <p>End-to-end handling of FB, Instagram, X, and YouTube. Active comment moderation, positive narrative push, and fan-base building.</p>
+            </div>
+            <div class="service-card">
+                <span style="color:var(--primary); font-weight:bold;">03</span>
+                <h3>Micro-Targeted Ads</h3>
+                <p>Constituency and pin-code targeted Meta & YouTube ads specifically designed to connect with first-time voters and key demographics.</p>
+            </div>
+            <div class="service-card">
+                <span style="color:var(--primary); font-weight:bold;">04</span>
+                <h3>Digital Counter & Crisis Control</h3>
+                <p>Real-time countering of opponent narratives, fake-news fact checking, comment sentiment tracking, and weekly analytics reporting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Showcase (Video, Graphics, Photography) -->
+    <section id="portfolio">
+        <div class="section-title">
+            <span>// MULTIMEDIA SHOWCASE</span>
+            <h2>Live Campaign Samples & Content Work</h2>
+        </div>
+
+        <!-- Main Page Video Player -->
+        <div class="media-block">
+            <h3 style="margin-bottom: 1rem;">1. Campaign Showreel & Rally Highlights</h3>
+            <div class="video-container">
+                <!-- Replace VIDEO_ID with your YouTube Video ID or Showreel URL -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Campaign Showreel" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Photography Showcase -->
+        <div class="media-block">
+            <h3 style="margin-bottom: 1rem;">2. Ground Photography & Rally Coverage</h3>
+            <div class="grid-3">
+                <div class="media-card">
+                    <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=600&q=80" alt="Public Interaction">
+                    <div class="info">
+                        <strong>Public Interaction & Rallies</strong>
+                        <p style="color:var(--text-muted); font-size:0.85rem;">High-resolution event coverage & leader portraits.</p>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Press Conference">
+                    <div class="info">
+                        <strong>Press Meets & Speeches</strong>
+                        <p style="color:var(--text-muted); font-size:0.85rem;">Professional media coverage and speech captures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Graphics Showcase -->
+        <div class="media-block">
+            <h3 style="margin-bottom: 1rem;">3. Graphic Designs & Manifesto Posters</h3>
+            <div class="grid-3">
+                <div class="media-card">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Graphic Poster">
+                    <div class="info">
+                        <strong>Development Work Infographics</strong>
+                        <p style="color:var(--text-muted); font-size:0.85rem;">Custom manifesto and achievement posters.</p>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Festival Greetings">
+                    <div class="info">
+                        <strong>Festival Greetings & Banners</strong>
+                        <p style="color:var(--text-muted); font-size:0.85rem;">Regional language branding posts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confidentiality Badge -->
+        <div class="nda-box">
+            🔒 100% Confidential: All client strategies, campaign data, and ad accounts are protected under strict Non-Disclosure Agreements (NDAs).
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="section-title">
+            <span>// HOW IT WORKS</span>
+            <h2>Our 4-Step Campaign Execution Process</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-num">01</div>
+                <h4>Digital Audit</h4>
+                <p style="color:var(--text-muted); font-size:0.9rem;">Audit of profile presence & constituency voter demographics.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">02</div>
+                <h4>Strategy & Narrative</h4>
+                <p style="color:var(--text-muted); font-size:0.9rem;">Weekly content calendar mapped to key political agendas.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">03</div>
+                <h4>Daily Execution & Ads</h4>
+                <p style="color:var(--text-muted); font-size:0.9rem;">Multi-platform posting, reels, comment moderation & targeted ads.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">04</div>
+                <h4>Insights & Counter</h4>
+                <p style="color:var(--text-muted); font-size:0.9rem;">Tracking online voter sentiment & executing real-time counters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-box">
+            <h2>Ready to Elevate Your Digital Presence?</h2>
+            <p style="color:var(--text-muted); margin: 1rem 0 2rem;">Get in touch with us confidentially for end-to-end political PR and digital campaign management.</p>
+            <a href="https://wa.me/918544157071?text=Hello%20Vscan%20Alliance,%20I%20want%20to%20discuss%20a%20political%20digital%20campaign." target="_blank" class="btn-cta" style="font-size:1.1rem; padding: 0.8rem 2rem;">Chat on WhatsApp Direct →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Vscan Alliance. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; color: var(--primary);">SPECIALIZED POLITICAL DIGITAL PR & ELECTION CAMPAIGN MEDIA AGENCY</p>
+    </footer>
+
+</body>
+  </html>
