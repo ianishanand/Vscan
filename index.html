@@ -20,7 +20,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; min-height: 100vh; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
         @keyframes floatMobile {
             0% { transform: translateY(0px); }
@@ -28,7 +28,6 @@
             100% { transform: translateY(0px); }
         }
 
-        /* Glowing Motion Pulse Animation for Submit Button */
         @keyframes buttonGlowPulse {
             0% { box-shadow: 0 0 10px rgba(37, 99, 235, 0.4); transform: scale(1); }
             50% { box-shadow: 0 0 25px rgba(37, 99, 235, 0.85); transform: scale(1.02); }
@@ -56,7 +55,7 @@
         .btn-primary:hover { background: var(--primary-hover); }
         .btn-secondary { border: 1px solid var(--border); color: var(--text-main); padding: 0.7rem 1.4rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
 
-        /* Instagram Mobile Frame */
+        /* Instagram Mobile Frame Mockup */
         .instagram-mobile-mockup {
             background: #000;
             border: 3px solid #334155;
@@ -84,7 +83,6 @@
         .ig-post-actions { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.9rem; }
         .ig-post-stats { font-size: 0.75rem; text-align: left; }
 
-        /* General Section */
         section { padding: 4rem 5%; max-width: 1250px; margin: 0 auto; }
         .section-title { margin-bottom: 2rem; }
         .section-title span { color: var(--primary); font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 0.4rem; text-transform: uppercase; }
@@ -95,20 +93,20 @@
         .service-card { background: var(--bg-card); padding: 1.8rem; border-radius: 10px; border: 1px solid var(--border); transition: 0.3s; }
         .service-card:hover { border-color: var(--primary); transform: translateY(-5px); }
 
-        /* Video Box */
-        .video-showcase-box { background: var(--bg-card); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border); margin-bottom: 3rem; }
-        .video-player-container { width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid var(--border); position: relative; }
-        .video-player-container video { width: 100%; height: 100%; object-fit: contain; }
-        .playlist-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; margin-top: 1.2rem; }
+        /* Reel Size Video Showcase Box (9:16 Vertical Ratio) */
+        .video-showcase-box { background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--border); margin: 2rem auto; max-width: 380px; text-align: center; }
+        .video-player-container { width: 100%; aspect-ratio: 9 / 16; border-radius: 16px; overflow: hidden; background: #000; border: 4px solid #334155; margin-bottom: 1.2rem; }
+        .video-player-container video { width: 100%; height: 100%; object-fit: cover; }
+        .playlist-buttons { display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
         .playlist-btn { background: #0f172a; color: var(--text-main); padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); text-align: center; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
         .playlist-btn:hover, .playlist-btn.active { border-color: var(--primary); background: rgba(37, 99, 235, 0.15); color: #38bdf8; }
 
         /* 5 Photos Grid */
-        .grid-5 { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+        .grid-5 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.2rem; }
         .media-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; }
         .media-card:hover { transform: translateY(-5px); border-color: var(--primary); }
         .media-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
-        .media-card .info { padding: 0.8rem; font-size: 0.85rem; }
+        .media-card .info { padding: 0.8rem; font-size: 0.85rem; text-align: center; }
 
         /* Process Grid */
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
@@ -116,8 +114,8 @@
 
         .nda-box { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); padding: 1.2rem; border-radius: 8px; margin: 2rem 0; text-align: center; color: var(--accent); font-weight: 600; }
 
-        /* Fixed Contact & Booking Section */
-        .contact-section { padding: 4rem 5% 6rem; max-width: 1250px; margin: 0 auto; display: block; }
+        /* Contact Section */
+        .contact-section { padding: 4rem 5% 6rem; max-width: 1250px; margin: 0 auto; }
         .contact-header { margin-bottom: 2.5rem; }
         .contact-header span { color: var(--primary); font-size: 0.9rem; font-weight: 700; display: block; margin-bottom: 0.5rem; text-transform: uppercase; }
         .contact-header h2 { font-size: 2.8rem; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Times New Roman', serif; }
@@ -130,7 +128,7 @@
         .info-group p, .info-group a { font-size: 1.1rem; color: var(--text-main); font-weight: 600; text-decoration: none; }
         .info-group a:hover { color: #38bdf8; }
 
-        /* Form Controls & Dropdown Styling */
+        /* Booking Form */
         .booking-form { display: flex; flex-direction: column; gap: 1.2rem; background: var(--bg-card); padding: 2.2rem; border-radius: 14px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
         .form-group label { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
@@ -151,7 +149,7 @@
         select.form-control { cursor: pointer; color: #fff; background-color: var(--input-bg); }
         select.form-control option { background-color: #0f172a; color: #fff; padding: 10px; }
 
-        /* Motion Pulse Animated Submit Button */
+        /* Motion Pulse Button */
         .btn-submit { 
             background: linear-gradient(135deg, #2563eb, #1d4ed8); 
             color: #ffffff; 
@@ -188,7 +186,7 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header Navigation -->
     <nav>
         <div class="logo">VSCAN <span>ALLIANCE</span></div>
         <div class="nav-links">
@@ -267,16 +265,16 @@
         </div>
     </section>
 
-    <!-- Showcase Section -->
+    <!-- Portfolio Section -->
     <section id="portfolio">
         <div class="section-title">
             <span>MULTIMEDIA SHOWCASE</span>
             <h2>Live Campaign Videos & Graphic Work</h2>
         </div>
 
-        <!-- 5 Auto-Playing Video Player Section -->
+        <!-- Vertical Reel Player (9:16 Vertical Aspect Ratio) -->
         <div class="video-showcase-box">
-            <h3 style="margin-bottom: 1rem;">🎥 Featured Campaign Showreels & Rally Videos</h3>
+            <h3 style="margin-bottom: 1rem;">🎥 Campaign Reels</h3>
             <div class="video-player-container">
                 <video id="mainVideoPlayer" autoplay loop muted playsinline controls>
                     <source id="videoSource" src="video1.mp4" type="video/mp4">
@@ -284,7 +282,6 @@
                 </video>
             </div>
 
-            <!-- 5 Video Selector Buttons -->
             <div class="playlist-buttons">
                 <div class="playlist-btn active" onclick="playSelectVideo('video1.mp4', this)">▶ Video 1: Rally Highlights</div>
                 <div class="playlist-btn" onclick="playSelectVideo('video2.mp4', this)">▶ Video 2: Speech Clips</div>
@@ -294,8 +291,8 @@
             </div>
         </div>
 
-        <!-- 5 Photos Showcase Grid -->
-        <h3 style="margin: 2.5rem 0 1rem;">📸 Political Posters & Graphics</h3>
+        <!-- 5 Graphics Grid -->
+        <h3 style="margin: 2.5rem 0 1rem; text-align: center;">📸 Political Posters & Graphics</h3>
         <div class="grid-5">
             <div class="media-card"><img src="graphic1.jpg" onerror="this.src='https://picsum.photos/400/300?random=1'" alt="Graphic 1"><div class="info">Campaign Poster 1</div></div>
             <div class="media-card"><img src="graphic2.jpg" onerror="this.src='https://picsum.photos/400/300?random=2'" alt="Graphic 2"><div class="info">Ground Rally Coverage 2</div></div>
@@ -335,7 +332,7 @@
         </div>
     </section>
 
-    <!-- Contact & Booking Section -->
+    <!-- Contact & Booking Form Section -->
     <section class="contact-section" id="contact">
         <div class="contact-header">
             <span>CONTACT</span>
@@ -344,7 +341,6 @@
         </div>
 
         <div class="contact-details-grid">
-            <!-- Contact Details -->
             <div class="contact-info-list">
                 <div class="info-group">
                     <label>WHATSAPP</label>
@@ -354,3 +350,6 @@
                     <label>EMAIL</label>
                     <p><a href="mailto:hello@vscanalliance.com">hello@vscanalliance.com</a></p>
                 </div>
+                <div class="info-group">
+                    <label>INSTAGRAM</label>
+                    <p><a href="https://instagram.com/vscanalliance" target="_blank">@vscanalliance</a></p>
