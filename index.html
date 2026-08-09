@@ -1,1 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vscan Alliance | Political Digital PR & Campaign Media</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #22c55e;
+            --border: #334155;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; min-height: 100vh; }
+
+        @keyframes floatMobile {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 5%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); }
+        .logo { font-size: 1.4rem; font-weight: 800; color: var(--text-main); }
+        .logo span { color: var(--primary); }
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 1.8rem; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--text-main); }
+        .btn-cta { background: var(--primary); color: #fff; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+        .btn-cta:hover { background: var(--primary-hover); }
+
+        /* Hero Section */
+        .hero { padding: 4rem 5%; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center; max-width: 1250px; margin: 0 auto; }
+        .badge { display: inline-block; background: rgba(2, 132, 199, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; border: 1px solid rgba(2, 132, 199, 0.3); }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.8rem; }
+        .hero-btns { display: flex; gap: 1rem; }
+        .btn-secondary { border: 1px solid var(--border); color: var(--text-main); padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
+
+        /* Instagram Mobile Frame */
+        .instagram-mobile-mockup {
+            background: #000;
+            border: 3px solid #334155;
+            border-radius: 28px;
+            padding: 12px;
+            width: 100%;
+            max-width: 310px;
+            margin: 0 auto;
+            color: #fff;
+            animation: floatMobile 5s ease-in-out infinite;
+            box-shadow: 0 0 25px rgba(2, 132, 199, 0.25);
+        }
+        .phone-header { display: flex; justify-content: space-between; align-items: center; padding: 2px 8px 8px; }
+        .phone-notch { width: 70px; height: 10px; background: #1e293b; border-radius: 10px; margin: 0 auto; }
+        .phone-time { font-size: 0.75rem; color: #94a3b8; }
+        .ig-post-header { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; }
+        .ig-user-info { display: flex; align-items: center; gap: 8px; }
+        .ig-avatar { width: 30px; height: 30px; border-radius: 50%; overflow: hidden; border: 1.5px solid #e1306c; }
+        .ig-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .ig-username { font-size: 0.8rem; font-weight: 700; color: #fff; }
+        .blue-tick { color: #3897f0; }
+        .ig-post-image { position: relative; border-radius: 6px; overflow: hidden; margin: 6px 0; }
+        .ig-post-image img { width: 100%; height: 230px; object-fit: cover; display: block; }
+        .ig-reach-badge { position: absolute; top: 8px; right: 8px; background: rgba(2, 132, 199, 0.9); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 3px 6px; border-radius: 4px; }
+        .ig-post-actions { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.9rem; }
+        .ig-post-stats { font-size: 0.75rem; text-align: left; }
+
+        /* Sections */
+        section { padding: 4rem 5%; max-width: 1250px; margin: 0 auto; }
+        .section-title { margin-bottom: 2rem; }
+        .section-title span { color: var(--primary); font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 0.4rem; }
+        .section-title h2 { font-size: 2rem; font-weight: 700; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .service-card { background: var(--bg-card); padding: 1.8rem; border-radius: 10px; border: 1px solid var(--border); transition: 0.3s; }
+        .service-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+
+        /* 5 Video Player Section */
+        .video-showcase-box { background: var(--bg-card); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border); margin-bottom: 3rem; }
+        .video-player-container { width: 100%; max-height: 500px; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid var(--border); }
+        .playlist-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; margin-top: 1.2rem; }
+        .playlist-btn { background: #0f172a; color: var(--text-main); padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); text-align: center; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        .playlist-btn:hover, .playlist-btn.active { border-color: var(--primary); background: rgba(2, 132, 199, 0.15); color: var(--primary); }
+
+        /* 5 Photos Grid Section */
+        .grid-5 { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+        .media-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; }
+        .media-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .media-card img { width: 100%; height: 200px; object-fit: cover; }
+        .media-card .info { padding: 0.8rem; font-size: 0.85rem; }
+
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
+        .process-step { background: var(--bg-card); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--primary); }
+
+        .nda-box { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); padding: 1.2rem; border-radius: 8px; margin: 2rem 0; text-align: center; color: var(--accent); font-weight: 600; }
+
+        .contact-box { background: var(--bg-card); padding: 3rem 1.5rem; border-radius: 12px; border: 1px solid var(--border); text-align: center; }
+        footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem 5%; color: var(--text-muted); font-size: 0.85rem; margin-top: 3rem; }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero-btns { justify-content: center; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav>
+        <div class="logo">VSCAN <span>ALLIANCE</span></div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#portfolio">Showcase</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="https://wa.me/919999999999" target="_blank" class="btn-cta">WhatsApp Call</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <span class="badge">POLITICAL DIGITAL CAMPAIGN & PR DIVISION</span>
+            <h1>We Build Winning <span>Digital Narratives</span> for Political Leaders.</h1>
+            <p>Vscan Alliance provides 100% confidential and result-oriented social media management, narrative building, micro-targeted ad campaigns, and online reputation management.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/919999999999" target="_blank" class="btn-cta">Book Strategy Call →</a>
+                <a href="#portfolio" class="btn-secondary">View Portfolio</a>
+            </div>
+        </div>
+
+        <div>
+            <div class="instagram-mobile-mockup">
+                <div class="phone-header">
+                    <div class="phone-notch"></div>
+                    <div class="phone-time">09:41</div>
+                </div>
+                <div class="ig-post-header">
+                    <div class="ig-user-info">
+                        <div class="ig-avatar">
+                            <img src="myprofile.jpg" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80'" alt="Leader">
+                        </div>
+                        <span class="ig-username">leader_official <span class="blue-tick">✓</span></span>
+                    </div>
+                </div>
+                <div class="ig-post-image">
+                    <img src="mypost.jpg" onerror="this.src='https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=600&q=80'" alt="Post">
+                    <div class="ig-reach-badge">10L+ Reach Generated</div>
+                </div>
+                <div class="ig-post-actions">
+                    <div>❤️ 💬 ✈️</div>
+                    <div>🔖</div>
+                </div>
+                <div class="ig-post-stats">
+                    Liked by <b>youth_voters</b> and <b>48,290 others</b>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-title">
+            <span>// OUR SPECIALIZED SERVICES</span>
+            <h2>Dedicated Political PR Solutions</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Narrative & Content Design</h3>
+                <p>Speech highlights, development work infographics, manifesto reels, and regional content.</p>
+            </div>
+            <div class="service-card">
+                <h3>Personal Branding & Community</h3>
+                <p>Handling of FB, Instagram, X, and YouTube with active comment moderation.</p>
+            </div>
+            <div class="service-card">
+                <h3>Micro-Targeted Ads</h3>
+                <p>Constituency and pin-code targeted Meta & YouTube ads for first-time voters.</p>
+            </div>
+            <div class="service-card">
+                <h3>Crisis Control</h3>
+                <p>Real-time countering of opponent narratives and fake-news fact checking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section (5 Videos + 5 Photos) -->
+    <section id="portfolio">
+        <div class="section-title">
+            <span>// MULTIMEDIA SHOWCASE</span>
+            <h2>Live Campaign Videos & Graphic Work</h2>
+        </div>
+
+        <!-- 5 Auto-Playing Video Player Section -->
+        <div class="video-showcase-box">
+            <h3 style="margin-bottom: 1rem;">🎥 Featured Campaign Showreels & Rally Videos (5 Samples)</h3>
+            <div class="video-player-container">
+                <video id="mainVideoPlayer" autoplay loop muted playsinline controls style="width: 100%; height: 100%; display: block;">
+                    <source id="videoSource" src="video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- 5 Video Buttons -->
+            <div class="playlist-buttons">
+                <div class="playlist-btn active" onclick="playSelectVideo('video1.mp4', this)">▶ Video 1: Rally Highlights</div>
+                <div class="playlist-btn" onclick="playSelectVideo('video2.mp4', this)">▶ Video 2: Speech Clips</div>
+                <div class="playlist-btn" onclick="playSelectVideo('video3.mp4', this)">▶ Video 3: Manifesto Promo</div>
+                <div class="playlist-btn" onclick="playSelectVideo('video4.mp4', this)">▶ Video 4: Youth Campaign</div>
+                <div class="playlist-btn" onclick="playSelectVideo('video5.mp4', this)">▶ Video 5: Event Coverage</div>
+            </div>
+        </div>
+
+        <!-- 5 Photos Showcase Grid -->
+        <h3 style="margin: 2.5rem 0 1rem;">📸 Political Posters & Graphics (5 Samples)</h3>
+        <div class="grid-5">
+            <div class="media-card"><img src="graphic1.jpg" onerror="this.src='https://picsum.photos/400/300?random=1'" alt="Graphic 1"><div class="info">Campaign Poster 1</div></div>
+            <div class="media-card"><img src="graphic2.jpg" onerror="this.src='https://picsum.photos/400/300?random=2'" alt="Graphic 2"><div class="info">Ground Rally Coverage 2</div></div>
+            <div class="media-card"><img src="graphic3.jpg" onerror="this.src='https://picsum.photos/400/300?random=3'" alt="Graphic 3"><div class="info">Manifesto Banner 3</div></div>
+            <div class="media-card"><img src="graphic4.jpg" onerror="this.src='https://picsum.photos/400/300?random=4'" alt="Graphic 4"><div class="info">Development Infographic 4</div></div>
+            <div class="media-card"><img src="graphic5.jpg" onerror="this.src='https://picsum.photos/400/300?random=5'" alt="Graphic 5"><div class="info">Festival Greeting 5</div></div>
+        </div>
+
+        <div class="nda-box">
+            🔒 100% Confidential: All client data & ad accounts are protected under Non-Disclosure Agreements (NDAs).
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="section-title">
+            <span>// HOW IT WORKS</span>
+            <h2>Our 4-Step Process</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <h4>01. Digital Audit</h4>
+                <p style="color:var(--text-muted); font-size:0.85rem;">Audit of profile & constituency demographics.</p>
+            </div>
+            <div class="process-step">
+                <h4>02. Strategy</h4>
+                <p style="color:var(--text-muted); font-size:0.85rem;">Weekly content calendar mapped to agendas.</p>
+            </div>
+            <div class="process-step">
+                <h4>03. Daily Execution</h4>
+                <p style="color:var(--text-muted); font-size:0.85rem;">Posting, reels, and targeted ad campaigns.</p>
+            </div>
+            <div class="process-step">
+                <h4>04. Insights</h4>
+                <p style="color:var(--text-muted); font-size:0.85rem;">Voter sentiment tracking & counters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section id="contact">
+        <div class="contact-box">
+            <h2>Ready to Elevate Your Digital Presence?</h2>
+            <p style="color:var(--text-muted); margin: 1rem 0 1.5rem;">Contact us confidentially for campaign management.</p>
+            <a href="https://wa.me/919999999999" target="_blank" class="btn-cta">Chat on WhatsApp Direct →</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Vscan Alliance. All rights reserved.</p>
+        <p style="color: var(--primary); margin-top:0.4rem;">SPECIALIZED POLITICAL DIGITAL PR & ELECTION CAMPAIGN AGENCY</p>
+    </footer>
+
+    <script>
+        function playSelectVideo(videoSrc, element) {
+            var player = document.getElementById('mainVideoPlayer');
+            var source = document.getElementById('videoSource');
+            source.src = videoSrc;
+            player.load();
+            player.play();
+
+            var btns = document.querySelectorAll('.playlist-btn');
+            btns.forEach(function(btn) { btn.classList.remove('active'); });
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
