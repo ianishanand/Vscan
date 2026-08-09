@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vscan Alliance | Political Digital PR</title>
+    <title>Vscan Alliance | Political Digital PR & Campaign Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -33,8 +33,8 @@
             100% { box-shadow: 0 0 10px rgba(37, 99, 235, 0.4); transform: scale(1); }
         }
 
-        /* Nav */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 5%; background: rgba(11, 19, 41, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 5%; background: rgba(11, 19, 41, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); }
         .logo { font-size: 1.3rem; font-weight: 800; color: var(--text-main); }
         .logo span { color: var(--primary); }
         .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 1.8rem; font-size: 0.95rem; }
@@ -72,19 +72,17 @@
         .section-title span { color: var(--primary); font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 0.4rem; text-transform: uppercase; }
         .section-title h2 { font-size: 2rem; font-weight: 700; }
 
-        /* Services Grid */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
         .service-card { background: var(--bg-card); padding: 1.8rem; border-radius: 10px; border: 1px solid var(--border); }
 
-        /* Reel Box */
-        .video-showcase-box { background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--border); margin: 2rem auto; max-width: 380px; text-align: center; }
-        .video-player-container { width: 100%; aspect-ratio: 9 / 16; border-radius: 16px; overflow: hidden; background: #000; border: 4px solid #334155; margin-bottom: 1.2rem; }
-        .video-player-container video { width: 100%; height: 100%; object-fit: cover; }
-        .playlist-buttons { display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
+        /* Original 16:9 Landscape Video Showcase Box */
+        .video-showcase-box { background: var(--bg-card); padding: 1.8rem; border-radius: 16px; border: 1px solid var(--border); margin-bottom: 2.5rem; }
+        .video-player-container { width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid var(--border); position: relative; }
+        .video-player-container video { width: 100%; height: 100%; object-fit: contain; }
+        .playlist-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; margin-top: 1.2rem; }
         .playlist-btn { background: #0f172a; color: var(--text-main); padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); text-align: center; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
         .playlist-btn.active { border-color: var(--primary); background: rgba(37, 99, 235, 0.15); color: #38bdf8; }
 
-        /* Grid 5 */
         .grid-5 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.2rem; }
         .media-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
         .media-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
@@ -93,7 +91,7 @@
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
         .process-step { background: var(--bg-card); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--primary); }
 
-        /* Contact Grid Fixed */
+        /* Contact Box */
         .contact-section { padding: 4rem 5% 6rem; max-width: 1250px; margin: 0 auto; }
         .contact-header { margin-bottom: 2rem; }
         .contact-header span { color: var(--primary); font-size: 0.9rem; font-weight: 700; display: block; margin-bottom: 0.5rem; text-transform: uppercase; }
@@ -109,7 +107,6 @@
         .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.2rem; }
         .form-group label { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
         .form-control { background: var(--input-bg); border: 1.5px solid var(--border); padding: 0.9rem 1rem; border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none; width: 100%; display: block; }
-        .form-control:focus { border-color: var(--primary); }
 
         .btn-submit-motion { 
             background: linear-gradient(135deg, #2563eb, #1d4ed8); 
@@ -171,7 +168,7 @@
                         <div class="ig-avatar">
                             <img src="myprofile.jpg" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80'" alt="Leader">
                         </div>
-                        <span class="ig-username">leader_official <span class="blue-tick">✓</span></span>
+                        <span class="ig-username">ianishanand <span class="blue-tick">✓</span></span>
                     </div>
                 </div>
                 <div class="ig-post-image">
@@ -220,8 +217,9 @@
             <h2>Live Campaign Videos & Graphic Work</h2>
         </div>
 
+        <!-- 16:9 Landscape Video Showcase -->
         <div class="video-showcase-box">
-            <h3 style="margin-bottom: 1rem;">🎥 Campaign Reels</h3>
+            <h3 style="margin-bottom: 1rem;">🎥 Featured Campaign Showreels & Rally Videos</h3>
             <div class="video-player-container">
                 <video id="mainVideoPlayer" autoplay loop muted playsinline controls>
                     <source id="videoSource" src="video1.mp4" type="video/mp4">
@@ -248,7 +246,6 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION WITH GUARANTEED VISIBLE FORM -->
     <section class="contact-section" id="contact">
         <div class="contact-header">
             <span>CONTACT</span>
@@ -257,11 +254,10 @@
         </div>
 
         <div class="contact-grid-wrapper">
-            <!-- Left Info -->
             <div class="contact-info-side">
                 <div class="info-group">
                     <label>WHATSAPP</label>
-                    <p><a href="https://wa.me/919999999999" target="_blank">+91 XXXXX XXXXX</a></p>
+                    <p><a href="https://wa.me/9185441770XX" target="_blank">+91 85441570XX</a></p>
                 </div>
                 <div class="info-group">
                     <label>EMAIL</label>
@@ -273,7 +269,6 @@
                 </div>
             </div>
 
-            <!-- Right Booking Form Box -->
             <div class="form-side">
                 <form onsubmit="sendWhatsAppBooking(event)">
                     <div class="form-group">
@@ -326,7 +321,7 @@
             var contact = document.getElementById('clientContact').value;
             var service = document.getElementById('serviceSelected').value;
 
-            var phoneNum = "919999999999"; 
+            var phoneNum = "9185441570XX"; 
             var message = `Hello Vscan Alliance,%0A%0ANew Political Campaign Inquiry:%0A- *Leader/Client Name:* ${name}%0A- *Contact Info:* ${contact}%0A- *Service Required:* ${service}`;
 
             window.open(`https://wa.me/${phoneNum}?text=${message}`, '_blank');
