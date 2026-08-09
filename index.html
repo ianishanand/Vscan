@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vscan Alliance | Political Digital PR & Campaign Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- AOS Scroll Animation Library CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
@@ -21,241 +20,102 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; min-height: 100vh; }
 
-        /* Advanced Motion Graphics Keyframes */
-        @keyframes floatMobile3D {
-            0% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-10px) rotate(1deg); }
-            50% { transform: translateY(-18px) rotate(-1deg); }
-            75% { transform: translateY(-8px) rotate(0.5deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        /* Keyframes */
+        @keyframes floatMobile {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
         }
 
-        @keyframes pulseGlow3D {
-            0% { box-shadow: 0 0 20px rgba(2, 132, 199, 0.3), inset 0 0 10px rgba(2, 132, 199, 0.2); }
-            50% { box-shadow: 0 0 45px rgba(2, 132, 199, 0.7), inset 0 0 20px rgba(2, 132, 199, 0.4); }
-            100% { box-shadow: 0 0 20px rgba(2, 132, 199, 0.3), inset 0 0 10px rgba(2, 132, 199, 0.2); }
-        }
-
-        @keyframes buttonShimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-
-        @keyframes textGradientMotion {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes badgePulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.4); }
-            70% { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(2, 132, 199, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(2, 132, 199, 0); }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(2, 132, 199, 0.3); }
+            50% { box-shadow: 0 0 35px rgba(2, 132, 199, 0.6); }
+            100% { box-shadow: 0 0 15px rgba(2, 132, 199, 0.3); }
         }
 
         /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background: rgba(15, 23, 42, 0.9); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-        .logo { font-size: 1.4rem; font-weight: 800; color: var(--text-main); letter-spacing: 0.5px; transition: transform 0.3s; }
-        .logo:hover { transform: scale(1.02); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 5%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        .logo { font-size: 1.4rem; font-weight: 800; color: var(--text-main); }
         .logo span { color: var(--primary); }
-        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 2rem; font-size: 0.95rem; transition: 0.3s; display: inline-block; }
-        .nav-links a:hover { color: var(--text-main); transform: translateY(-2px); }
-        
-        .btn-cta { 
-            background: linear-gradient(110deg, #0284c7 0%, #2563eb 50%, #38bdf8 100%); 
-            background-size: 200% auto;
-            color: #fff; 
-            padding: 0.7rem 1.4rem; 
-            border-radius: 6px; 
-            font-weight: 600; 
-            text-decoration: none; 
-            transition: all 0.4s ease; 
-            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3); 
-            animation: buttonShimmer 4s infinite linear;
-        }
-        .btn-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 25px rgba(2, 132, 199, 0.6); }
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 1.8rem; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--text-main); }
+        .btn-cta { background: var(--primary); color: #fff; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+        .btn-cta:hover { background: var(--primary-hover); }
 
         /* Hero Section */
-        .hero { padding: 5rem 5% 4rem; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; max-width: 1300px; margin: 0 auto; }
-        .badge { display: inline-block; background: rgba(2, 132, 199, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1.2rem; border: 1px solid rgba(2, 132, 199, 0.3); animation: badgePulse 2s infinite; }
-        
-        .hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.2rem; }
-        .hero h1 span { 
-            background: linear-gradient(90deg, #38bdf8, #818cf8, #38bdf8, #22c55e);
-            background-size: 300% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            animation: textGradientMotion 5s linear infinite;
-        }
+        .hero { padding: 4rem 5%; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center; max-width: 1250px; margin: 0 auto; }
+        .badge { display: inline-block; background: rgba(2, 132, 199, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; border: 1px solid rgba(2, 132, 199, 0.3); }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.8rem; }
+        .hero-btns { display: flex; gap: 1rem; }
+        .btn-secondary { border: 1px solid var(--border); color: var(--text-main); padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
 
-        .hero p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; }
-        .hero-btns { display: flex; gap: 1rem; margin-bottom: 2rem; }
-        .btn-secondary { border: 1px solid var(--border); color: var(--text-main); padding: 0.7rem 1.4rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
-        .btn-secondary:hover { border-color: var(--primary); background: rgba(2, 132, 199, 0.1); transform: translateY(-3px); }
-        
-        /* Real Instagram Mobile Mockup with Motion */
+        /* Instagram Mobile Frame */
         .instagram-mobile-mockup {
             background: #000;
             border: 3px solid #334155;
             border-radius: 28px;
             padding: 12px;
-            max-width: 320px;
+            width: 100%;
+            max-width: 310px;
             margin: 0 auto;
             color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            position: relative;
-            animation: floatMobile3D 7s ease-in-out infinite, pulseGlow3D 5s infinite ease-in-out;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .instagram-mobile-mockup:hover {
-            transform: scale(1.05) rotate(0deg) !important;
+            animation: floatMobile 5s ease-in-out infinite, pulseGlow 4s infinite;
         }
 
-        .phone-header { display: flex; justify-content: space-between; align-items: center; padding: 2px 10px 8px; }
-        .phone-notch { width: 80px; height: 10px; background: #1e293b; border-radius: 10px; margin: 0 auto; }
-        .phone-time { font-size: 0.75rem; color: #94a3b8; font-weight: 600; }
+        .phone-header { display: flex; justify-content: space-between; align-items: center; padding: 2px 8px 8px; }
+        .phone-notch { width: 70px; height: 10px; background: #1e293b; border-radius: 10px; margin: 0 auto; }
+        .phone-time { font-size: 0.75rem; color: #94a3b8; }
 
-        .ig-post-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; }
+        .ig-post-header { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; }
         .ig-user-info { display: flex; align-items: center; gap: 8px; }
-        .ig-avatar { width: 32px; height: 32px; border-radius: 50%; overflow: hidden; border: 1.5px solid #e1306c; }
+        .ig-avatar { width: 30px; height: 30px; border-radius: 50%; overflow: hidden; border: 1.5px solid #e1306c; }
         .ig-avatar img { width: 100%; height: 100%; object-fit: cover; }
-        .ig-user-details { display: flex; flex-direction: column; }
         .ig-username { font-size: 0.8rem; font-weight: 700; color: #fff; }
-        .blue-tick { color: #3897f0; font-size: 0.75rem; }
-        .ig-location { font-size: 0.65rem; color: #94a3b8; }
-        .ig-menu { color: #94a3b8; font-size: 0.8rem; cursor: pointer; }
+        .blue-tick { color: #3897f0; }
 
         .ig-post-image { position: relative; border-radius: 6px; overflow: hidden; margin: 6px 0; }
-        .ig-post-image img { width: 100%; height: 250px; object-fit: cover; display: block; transition: transform 0.6s ease; }
-        .instagram-mobile-mockup:hover .ig-post-image img { transform: scale(1.08); }
-
-        .ig-reach-badge {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: rgba(2, 132, 199, 0.95);
-            color: #fff;
-            font-size: 0.65rem;
-            font-weight: 800;
-            padding: 4px 8px;
-            border-radius: 4px;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
+        .ig-post-image img { width: 100%; height: 230px; object-fit: cover; display: block; }
+        .ig-reach-badge { position: absolute; top: 8px; right: 8px; background: rgba(2, 132, 199, 0.9); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 3px 6px; border-radius: 4px; }
 
         .ig-post-actions { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.9rem; }
-        .ig-icons-left { display: flex; gap: 10px; }
+        .ig-post-stats { font-size: 0.75rem; text-align: left; }
 
-        .ig-post-stats { font-size: 0.75rem; text-align: left; line-height: 1.3; }
-        .ig-likes { margin-bottom: 3px; }
-        .ig-caption { color: #e2e8f0; margin-bottom: 4px; }
-        .ig-comments-count { color: #94a3b8; margin-bottom: 2px; }
-        .ig-time-ago { color: #64748b; font-size: 0.6rem; letter-spacing: 0.5px; }
+        /* Sections */
+        section { padding: 4rem 5%; max-width: 1250px; margin: 0 auto; }
+        .section-title { margin-bottom: 2rem; }
+        .section-title span { color: var(--primary); font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 0.4rem; }
+        .section-title h2 { font-size: 2rem; font-weight: 700; }
 
-        /* Sections General */
-        section { padding: 4.5rem 5%; max-width: 1300px; margin: 0 auto; }
-        .section-title { margin-bottom: 2.5rem; }
-        .section-title span { color: var(--primary); font-weight: 700; font-size: 0.9rem; letter-spacing: 1.5px; display: block; margin-bottom: 0.5rem; }
-        .section-title h2 { font-size: 2.2rem; font-weight: 800; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .service-card { background: var(--bg-card); padding: 1.8rem; border-radius: 10px; border: 1px solid var(--border); transition: 0.3s; }
+        .service-card:hover { border-color: var(--primary); transform: translateY(-5px); }
 
-        /* Services Motion Grid Cards */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-        .service-card { 
-            background: var(--bg-card); 
-            padding: 2.2rem 2rem; 
-            border-radius: 12px; 
-            border: 1px solid var(--border); 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            position: relative;
-            overflow: hidden;
-        }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-            transition: 0.5s;
-        }
-        .service-card:hover::before { left: 100%; }
-        .service-card:hover { 
-            border-color: var(--primary); 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 30px rgba(2, 132, 199, 0.25); 
-        }
-        .service-card h3 { margin: 1rem 0 0.5rem; font-size: 1.25rem; }
-        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
-
-        /* Showcase Sections */
-        .media-block { margin-bottom: 3.5rem; }
-        .video-container { 
-            position: relative; 
-            padding-bottom: 56.25%; 
-            height: 0; 
-            overflow: hidden; 
-            border-radius: 16px; 
-            border: 1px solid var(--border); 
-            background: #000; 
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .video-container:hover { border-color: var(--primary); transform: scale(1.01); box-shadow: 0 15px 40px rgba(2, 132, 199, 0.3); }
+        .media-block { margin-bottom: 3rem; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); background: #000; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .media-card { 
-            background: var(--bg-card); 
-            border-radius: 10px; 
-            overflow: hidden; 
-            border: 1px solid var(--border); 
-            transition: all 0.4s ease; 
-        }
-        .media-card:hover { 
-            transform: translateY(-8px) scale(1.02); 
-            border-color: var(--primary); 
-            box-shadow: 0 12px 25px rgba(0,0,0,0.4);
-        }
-        .media-card img { width: 100%; height: 230px; object-fit: cover; transition: transform 0.6s ease; }
-        .media-card:hover img { transform: scale(1.08); }
-        .media-card .info { padding: 1.2rem; }
 
-        /* Process Grid Cards with Motion Step */
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
-        .process-step { 
-            background: var(--bg-card); 
-            padding: 1.8rem; 
-            border-radius: 10px; 
-            border-left: 4px solid var(--primary); 
-            transition: all 0.3s ease; 
-        }
-        .process-step:hover { transform: translateX(8px); background: #243347; }
-        .step-num { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .media-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; }
+        .media-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .media-card img { width: 100%; height: 200px; object-fit: cover; }
+        .media-card .info { padding: 1rem; }
 
-        /* Motion NDA Box */
-        .nda-box { 
-            background: rgba(34, 197, 94, 0.08); 
-            border: 1px solid rgba(34, 197, 94, 0.3); 
-            padding: 1.5rem; 
-            border-radius: 10px; 
-            margin: 2.5rem 0; 
-            text-align: center; 
-            color: var(--accent); 
-            font-weight: 600; 
-            transition: all 0.3s ease;
-        }
-        .nda-box:hover { background: rgba(34, 197, 94, 0.15); transform: scale(1.01); }
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
+        .process-step { background: var(--bg-card); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--primary); }
 
-        /* Contact & Footer */
-        .contact-box { background: var(--bg-card); padding: 3.5rem 2rem; border-radius: 16px; border: 1px solid var(--border); text-align: center; transition: all 0.3s ease; }
-        .contact-box:hover { border-color: var(--primary); box-shadow: 0 10px 30px rgba(2, 132, 199, 0.15); }
-        
-        footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem 5%; color: var(--text-muted); font-size: 0.9rem; margin-top: 4rem; }
+        .nda-box { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); padding: 1.2rem; border-radius: 8px; margin: 2rem 0; text-align: center; color: var(--accent); font-weight: 600; }
+
+        .contact-box { background: var(--bg-card); padding: 3rem 1.5rem; border-radius: 12px; border: 1px solid var(--border); text-align: center; }
+        footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem 5%; color: var(--text-muted); font-size: 0.85rem; margin-top: 3rem; }
 
         @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.2rem; }
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero-btns { justify-content: center; }
             .nav-links { display: none; }
         }
     </style>
@@ -271,63 +131,45 @@
             <a href="#process">Process</a>
             <a href="#contact">Contact</a>
         </div>
-        <a href="https://wa.me/919999999999?text=Hello%20Vscan%20Alliance,%20I%20want%20to%20discuss%20a%20political%20digital%20campaign." target="_blank" class="btn-cta">WhatsApp Strategy Call</a>
+        <a href="https://wa.me/919999999999" target="_blank" class="btn-cta">WhatsApp Call</a>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div data-aos="fade-right" data-aos-duration="1000">
+        <div data-aos="fade-right">
             <span class="badge">POLITICAL DIGITAL CAMPAIGN & PR DIVISION</span>
             <h1>We Build Winning <span>Digital Narratives</span> for Political Leaders.</h1>
-            <p>Vscan Alliance provides 100% confidential and result-oriented social media management, narrative building, micro-targeted ad campaigns, and online reputation management for political leaders and parties.</p>
+            <p>Vscan Alliance provides 100% confidential and result-oriented social media management, narrative building, micro-targeted ad campaigns, and online reputation management.</p>
             <div class="hero-btns">
-                <a href="https://wa.me/919999999999" target="_blank" class="btn-cta">Book Confidential Strategy Call →</a>
-                <a href="#portfolio" class="btn-secondary">View Political Portfolio</a>
+                <a href="https://wa.me/919999999999" target="_blank" class="btn-cta">Book Strategy Call →</a>
+                <a href="#portfolio" class="btn-secondary">View Portfolio</a>
             </div>
         </div>
 
-        <!-- Real Instagram Mobile Mockup with Floating 3D Motion -->
-        <div data-aos="fade-left" data-aos-duration="1200">
+        <div data-aos="fade-left">
             <div class="instagram-mobile-mockup">
                 <div class="phone-header">
                     <div class="phone-notch"></div>
                     <div class="phone-time">09:41</div>
                 </div>
-
                 <div class="ig-post-header">
                     <div class="ig-user-info">
                         <div class="ig-avatar">
-                            <img src="myprofile.jpg" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80'" alt="Leader Profile">
+                            <img src="myprofile.jpg" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80'" alt="Leader">
                         </div>
-                        <div class="ig-user-details">
-                            <span class="ig-username">leader_official <span class="blue-tick">✓</span></span>
-                            <span class="ig-location">Constituency Campaign</span>
-                        </div>
+                        <span class="ig-username">leader_official <span class="blue-tick">✓</span></span>
                     </div>
-                    <div class="ig-menu">•••</div>
                 </div>
-
                 <div class="ig-post-image">
-                    <img src="mypost.jpg" onerror="this.src='https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=600&q=80'" alt="Campaign Post">
+                    <img src="mypost.jpg" onerror="this.src='https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=600&q=80'" alt="Post">
                     <div class="ig-reach-badge">10L+ Reach Generated</div>
                 </div>
-
                 <div class="ig-post-actions">
-                    <div class="ig-icons-left">
-                        <span class="ig-icon">❤️</span>
-                        <span class="ig-icon">💬</span>
-                        <span class="ig-icon">✈️</span>
-                    </div>
-                    <div class="ig-icon-right">🔖</div>
+                    <div>❤️ 💬 ✈️</div>
+                    <div>🔖</div>
                 </div>
-
                 <div class="ig-post-stats">
-                    <div class="ig-likes">Liked by <b>youth_voters</b> and <b>48,290 others</b></div>
-                    <div class="ig-caption">
-                        <b>leader_official</b> जन-सेवा और क्षेत्र के सर्वांगीण विकास के लिए समर्पित। जुड़े हमारे डिजिटल अभियान से... 👇
-                    </div>
-                    <div class="ig-comments-count">View all 1,420 comments</div>
-                    <div class="ig-time-ago">2 HOURS AGO</div>
+                    Liked by <b>youth_voters</b> and <b>48,290 others</b>
                 </div>
             </div>
         </div>
@@ -337,57 +179,113 @@
     <section id="services">
         <div class="section-title" data-aos="fade-up">
             <span>// OUR SPECIALIZED SERVICES</span>
-            <h2>Dedicated Political Digital PR Solutions</h2>
+            <h2>Dedicated Political PR Solutions</h2>
         </div>
         <div class="services-grid">
-            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <span style="color:var(--primary); font-weight:bold;">01</span>
+            <div class="service-card" data-aos="fade-up">
                 <h3>Narrative & Content Design</h3>
-                <p>Speech highlights, development work infographics, manifesto reels, festival posters, and regional dialect content customization.</p>
+                <p>Speech highlights, development work infographics, manifesto reels, and regional content.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Personal Branding & Community</h3>
+                <p>Handling of FB, Instagram, X, and YouTube with active comment moderation.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <span style="color:var(--primary); font-weight:bold;">02</span>
-                <h3>Personal Branding & Community</h3>
-                <p>End-to-end handling of FB, Instagram, X, and YouTube. Active comment moderation, positive narrative push, and fan-base building.</p>
+                <h3>Micro-Targeted Ads</h3>
+                <p>Constituency and pin-code targeted Meta & YouTube ads for first-time voters.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                <span style="color:var(--primary); font-weight:bold;">03</span>
-                <h3>Micro-Targeted Ads</h3>
-                <p>Constituency and pin-code targeted Meta & YouTube ads specifically designed to connect with first-time voters and key demographics.</p>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                <span style="color:var(--primary); font-weight:bold;">04</span>
-                <h3>Digital Counter & Crisis Control</h3>
-                <p>Real-time countering of opponent narratives, fake-news fact checking, comment sentiment tracking, and weekly analytics reporting.</p>
+                <h3>Crisis Control</h3>
+                <p>Real-time countering of opponent narratives and fake-news fact checking.</p>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Showcase -->
+    <!-- Showcase Section -->
     <section id="portfolio">
         <div class="section-title" data-aos="fade-up">
             <span>// MULTIMEDIA SHOWCASE</span>
             <h2>Live Campaign Samples & Content Work</h2>
         </div>
 
-        <!-- Main Page Video Player -->
-        <div class="media-block" data-aos="zoom-in" data-aos-duration="1000">
-            <h3 style="margin-bottom: 1rem;">1. Campaign Showreel & Rally Highlights</h3>
+        <div class="media-block" data-aos="zoom-in">
+            <h3 style="margin-bottom: 1rem;">1. Campaign Showreel</h3>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Campaign Showreel" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Showreel" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Photography Showcase -->
         <div class="media-block">
-            <h3 style="margin-bottom: 1rem;" data-aos="fade-right">2. Ground Photography & Rally Coverage</h3>
+            <h3 style="margin-bottom: 1rem;">2. Ground Photography & Rally Coverage</h3>
             <div class="grid-3">
-                <div class="media-card" data-aos="flip-left" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=600&q=80" alt="Public Interaction">
+                <div class="media-card" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=600&q=80" alt="Public Rally">
                     <div class="info">
-                        <strong>Public Interaction & Rallies</strong>
-                        <p style="color:var(--text-muted); font-size:0.85rem;">High-resolution event coverage & leader portraits.</p>
+                        <strong>Public Rallies</strong>
+                        <p style="color:var(--text-muted); font-size:0.85rem;">High-resolution event coverage.</p>
                     </div>
                 </div>
-                <div class="media-card" data-aos="flip-left" data-aos-delay="200">
+                <div class="media-card" data-aos="fade-up" data-aos-delay="100">
                     <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Press Conference">
+                    <div class="info">
+                        <strong>Press Conferences</strong>
+                        <p style="color:var(--text-muted); font-size:0.85rem;">Media coverage & speeches.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nda-box">
+            🔒 100% Confidential: Protected under Non-Disclosure Agreements (NDAs).
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="section-title" data-aos="fade-up">
+            <span>// HOW IT WORKS</span>
+            <h2>Our 4-Step Process</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step" data-aos="fade-up">
+                <h4>01. Digital Audit</h4>
+                <p style="color:var(--text-muted); font-size:0.85rem;">Audit of profile & constituency demographics.</p>
+            </div>
+            <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                <h4>02. Strategy</h4>
+                <p style="color:var(--text-muted); font-size:0.85rem;">Weekly content calendar mapped to agendas.</p>
+            </div>
+            <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                <h4>03. Daily Execution</h4>
+                <p style="color:var(--text-muted); font-size:0.85rem;">Posting, reels, and targeted ad campaigns.</p>
+            </div>
+            <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                <h4>04. Insights</h4>
+                <p style="color:var(--text-muted); font-size:0.85rem;">Voter sentiment tracking & counters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section id="contact">
+        <div class="contact-box" data-aos="zoom-in">
+            <h2>Ready to Elevate Your Digital Presence?</h2>
+            <p style="color:var(--text-muted); margin: 1rem 0 1.5rem;">Contact us confidentially for campaign management.</p>
+            <a href="https://wa.me/919999999999" target="_blank" class="btn-cta">Chat on WhatsApp Direct →</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Vscan Alliance. All rights reserved.</p>
+        <p style="color: var(--primary); margin-top:0.4rem;">SPECIALIZED POLITICAL DIGITAL PR & ELECTION CAMPAIGN AGENCY</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>
