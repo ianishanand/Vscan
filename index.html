@@ -22,7 +22,7 @@
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; min-height: 100vh; }
 
-        /* Keyframes */
+        /* Keyframes Animations */
         @keyframes floatMobile {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
@@ -36,7 +36,7 @@
         }
 
         /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 5%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 5%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); }
         .logo { font-size: 1.4rem; font-weight: 800; color: var(--text-main); }
         .logo span { color: var(--primary); }
         .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 1.8rem; font-size: 0.95rem; transition: 0.3s; }
@@ -53,7 +53,7 @@
         .hero-btns { display: flex; gap: 1rem; }
         .btn-secondary { border: 1px solid var(--border); color: var(--text-main); padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
 
-        /* Instagram Mobile Frame */
+        /* Instagram Mobile Mockup */
         .instagram-mobile-mockup {
             background: #000;
             border: 3px solid #334155;
@@ -65,22 +65,18 @@
             color: #fff;
             animation: floatMobile 5s ease-in-out infinite, pulseGlow 4s infinite;
         }
-
         .phone-header { display: flex; justify-content: space-between; align-items: center; padding: 2px 8px 8px; }
         .phone-notch { width: 70px; height: 10px; background: #1e293b; border-radius: 10px; margin: 0 auto; }
         .phone-time { font-size: 0.75rem; color: #94a3b8; }
-
         .ig-post-header { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; }
         .ig-user-info { display: flex; align-items: center; gap: 8px; }
         .ig-avatar { width: 30px; height: 30px; border-radius: 50%; overflow: hidden; border: 1.5px solid #e1306c; }
         .ig-avatar img { width: 100%; height: 100%; object-fit: cover; }
         .ig-username { font-size: 0.8rem; font-weight: 700; color: #fff; }
         .blue-tick { color: #3897f0; }
-
         .ig-post-image { position: relative; border-radius: 6px; overflow: hidden; margin: 6px 0; }
         .ig-post-image img { width: 100%; height: 230px; object-fit: cover; display: block; }
         .ig-reach-badge { position: absolute; top: 8px; right: 8px; background: rgba(2, 132, 199, 0.9); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 3px 6px; border-radius: 4px; }
-
         .ig-post-actions { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.9rem; }
         .ig-post-stats { font-size: 0.75rem; text-align: left; }
 
@@ -94,15 +90,19 @@
         .service-card { background: var(--bg-card); padding: 1.8rem; border-radius: 10px; border: 1px solid var(--border); transition: 0.3s; }
         .service-card:hover { border-color: var(--primary); transform: translateY(-5px); }
 
-        .media-block { margin-bottom: 3rem; }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); background: #000; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        /* 5 Video Showcase Box */
+        .video-showcase-box { background: var(--bg-card); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border); margin-bottom: 3rem; }
+        .video-player-container { width: 100%; max-height: 500px; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid var(--border); }
+        .playlist-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; margin-top: 1.2rem; }
+        .playlist-btn { background: #0f172a; color: var(--text-main); padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); text-align: center; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        .playlist-btn:hover, .playlist-btn.active { border-color: var(--primary); background: rgba(2, 132, 199, 0.15); color: var(--primary); }
 
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        /* 20 Photos Grid */
+        .grid-20 { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
         .media-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; }
         .media-card:hover { transform: translateY(-5px); border-color: var(--primary); }
         .media-card img { width: 100%; height: 200px; object-fit: cover; }
-        .media-card .info { padding: 1rem; }
+        .media-card .info { padding: 0.8rem; font-size: 0.85rem; }
 
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
         .process-step { background: var(--bg-card); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--primary); }
@@ -201,42 +201,60 @@
         </div>
     </section>
 
-    <!-- Showcase Section -->
+    <!-- Showcase Section (5 Videos + 20 Photos) -->
     <section id="portfolio">
         <div class="section-title" data-aos="fade-up">
             <span>// MULTIMEDIA SHOWCASE</span>
-            <h2>Live Campaign Samples & Content Work</h2>
+            <h2>Live Campaign Videos & Graphic Work</h2>
         </div>
 
-        <div class="media-block" data-aos="zoom-in">
-            <h3 style="margin-bottom: 1rem;">1. Campaign Showreel</h3>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Showreel" allowfullscreen></iframe>
+        <!-- 5 Auto-Playing Video Player Section -->
+        <div class="video-showcase-box" data-aos="zoom-in">
+            <h3 style="margin-bottom: 1rem;">🎥 Featured Campaign Showreels & Rally Videos</h3>
+            <div class="video-player-container">
+                <video id="mainVideoPlayer" autoplay loop muted playsinline controls style="width: 100%; height: 100%; display: block;">
+                    <source id="videoSource" src="video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- 5 Playlist Selector Buttons -->
+            <div class="playlist-buttons">
+                <div class="playlist-btn active" onclick="playSelectVideo('video1.mp4', this)">▶ Video 1: Rally Highlights</div>
+                <div class="playlist-btn" onclick="playSelectVideo('video2.mp4', this)">▶ Video 2: Speech Clips</div>
+                <div class="playlist-btn" onclick="playSelectVideo('video3.mp4', this)">▶ Video 3: Manifesto Promo</div>
+                <div class="playlist-btn" onclick="playSelectVideo('video4.mp4', this)">▶ Video 4: Youth Campaign</div>
+                <div class="playlist-btn" onclick="playSelectVideo('video5.mp4', this)">▶ Video 5: Event Coverage</div>
             </div>
         </div>
 
-        <div class="media-block">
-            <h3 style="margin-bottom: 1rem;">2. Ground Photography & Rally Coverage</h3>
-            <div class="grid-3">
-                <div class="media-card" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=600&q=80" alt="Public Rally">
-                    <div class="info">
-                        <strong>Public Rallies</strong>
-                        <p style="color:var(--text-muted); font-size:0.85rem;">High-resolution event coverage.</p>
-                    </div>
-                </div>
-                <div class="media-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Press Conference">
-                    <div class="info">
-                        <strong>Press Conferences</strong>
-                        <p style="color:var(--text-muted); font-size:0.85rem;">Media coverage & speeches.</p>
-                    </div>
-                </div>
-            </div>
+        <!-- 20 Photos Showcase Grid -->
+        <h3 style="margin: 2.5rem 0 1rem;" data-aos="fade-up">📸 Political Posters, Rallies & Graphics (20 Samples)</h3>
+        <div class="grid-20">
+            <div class="media-card" data-aos="fade-up"><img src="graphic1.jpg" onerror="this.src='https://picsum.photos/400/300?random=1'" alt="Sample 1"><div class="info">Campaign Poster 1</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic2.jpg" onerror="this.src='https://picsum.photos/400/300?random=2'" alt="Sample 2"><div class="info">Campaign Poster 2</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic3.jpg" onerror="this.src='https://picsum.photos/400/300?random=3'" alt="Sample 3"><div class="info">Ground Rally 3</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic4.jpg" onerror="this.src='https://picsum.photos/400/300?random=4'" alt="Sample 4"><div class="info">Manifesto Banner 4</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic5.jpg" onerror="this.src='https://picsum.photos/400/300?random=5'" alt="Sample 5"><div class="info">Youth Connect 5</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic6.jpg" onerror="this.src='https://picsum.photos/400/300?random=6'" alt="Sample 6"><div class="info">Festival Greeting 6</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic7.jpg" onerror="this.src='https://picsum.photos/400/300?random=7'" alt="Sample 7"><div class="info">Press Conference 7</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic8.jpg" onerror="this.src='https://picsum.photos/400/300?random=8'" alt="Sample 8"><div class="info">Development Report 8</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic9.jpg" onerror="this.src='https://picsum.photos/400/300?random=9'" alt="Sample 9"><div class="info">Leader Portrait 9</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic10.jpg" onerror="this.src='https://picsum.photos/400/300?random=10'" alt="Sample 10"><div class="info">Digital PR Banner 10</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic11.jpg" onerror="this.src='https://picsum.photos/400/300?random=11'" alt="Sample 11"><div class="info">Social Media Post 11</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic12.jpg" onerror="this.src='https://picsum.photos/400/300?random=12'" alt="Sample 12"><div class="info">Public Meeting 12</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic13.jpg" onerror="this.src='https://picsum.photos/400/300?random=13'" alt="Sample 13"><div class="info">Infographic Card 13</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic14.jpg" onerror="this.src='https://picsum.photos/400/300?random=14'" alt="Sample 14"><div class="info">Campaign Quote 14</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic15.jpg" onerror="this.src='https://picsum.photos/400/300?random=15'" alt="Sample 15"><div class="info">Event Photo 15</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic16.jpg" onerror="this.src='https://picsum.photos/400/300?random=16'" alt="Sample 16"><div class="info">Manifesto Highlight 16</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic17.jpg" onerror="this.src='https://picsum.photos/400/300?random=17'" alt="Sample 17"><div class="info">Rally Coverage 17</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic18.jpg" onerror="this.src='https://picsum.photos/400/300?random=18'" alt="Sample 18"><div class="info">Regional Graphic 18</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic19.jpg" onerror="this.src='https://picsum.photos/400/300?random=19'" alt="Sample 19"><div class="info">Leader Banner 19</div></div>
+            <div class="media-card" data-aos="fade-up"><img src="graphic20.jpg" onerror="this.src='https://picsum.photos/400/300?random=20'" alt="Sample 20"><div class="info">Campaign Poster 20</div></div>
         </div>
 
         <div class="nda-box">
-            🔒 100% Confidential: Protected under Non-Disclosure Agreements (NDAs).
+            🔒 100% Confidential: All client data & ad accounts are protected under Non-Disclosure Agreements (NDAs).
         </div>
     </section>
 
@@ -280,12 +298,9 @@
         <p style="color: var(--primary); margin-top:0.4rem;">SPECIALIZED POLITICAL DIGITAL PR & ELECTION CAMPAIGN AGENCY</p>
     </footer>
 
+    <!-- AOS Script -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-    </script>
-</body>
-</html>
+        AOS.init({ duration: 800, once: true });
+
+        // JavaScript for Switching Vid
