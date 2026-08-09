@@ -20,7 +20,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; min-height: 100vh; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; min-height: 100vh; overflow-x: hidden; }
 
         @keyframes floatMobile {
             0% { transform: translateY(0px); }
@@ -109,8 +109,8 @@
 
         .nda-box { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); padding: 1.2rem; border-radius: 8px; margin: 2rem 0; text-align: center; color: var(--accent); font-weight: 600; }
 
-        /* Contact Section */
-        .contact-section { padding: 4rem 5% 6rem; max-width: 1250px; margin: 0 auto; }
+        /* Responsive Contact Section */
+        .contact-section { padding: 4rem 5% 6rem; max-width: 1250px; margin: 0 auto; height: auto; }
         .contact-header { margin-bottom: 2.5rem; }
         .contact-header span { color: var(--primary); font-size: 0.9rem; font-weight: 700; display: block; margin-bottom: 0.5rem; text-transform: uppercase; }
         .contact-header h2 { font-size: 2.8rem; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Times New Roman', serif; }
@@ -123,33 +123,35 @@
         .info-group p, .info-group a { font-size: 1.1rem; color: var(--text-main); font-weight: 600; text-decoration: none; }
         .info-group a:hover { color: #38bdf8; }
 
-        /* Booking Form & Submit Button */
-        .booking-form { display: flex; flex-direction: column; gap: 1.2rem; background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); }
+        /* Form Responsive Design */
+        .booking-form { display: flex; flex-direction: column; gap: 1.2rem; background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); height: auto; }
         .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
         .form-group label { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
         .form-control { background: var(--input-bg); border: 1px solid var(--border); padding: 0.9rem 1rem; border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none; transition: 0.3s; width: 100%; }
         .form-control:focus { border-color: var(--primary); }
         select.form-control { cursor: pointer; }
 
+        /* Full Submit Button */
         .btn-submit { 
             background: #2563eb; 
             color: #ffffff; 
-            padding: 1rem 1.5rem; 
+            padding: 1.1rem 1.5rem; 
             border-radius: 8px; 
             border: none; 
             font-weight: 700; 
             font-size: 1rem; 
             cursor: pointer; 
             transition: 0.3s; 
-            margin-top: 0.5rem;
+            margin-top: 0.8rem;
             display: block;
             width: 100%;
             box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
         }
         .btn-submit:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6); }
 
-        footer { border-top: 1px solid var(--border); text-align: center; padding: 2.5rem 5%; color: var(--text-muted); font-size: 0.85rem; margin-top: 2rem; }
+        footer { border-top: 1px solid var(--border); text-align: center; padding: 2.5rem 5%; color: var(--text-muted); font-size: 0.85rem; margin-top: 3rem; }
 
+        /* Mobile & Laptop Responsive Tweaks */
         @media (max-width: 850px) {
             .hero { grid-template-columns: 1fr; text-align: center; }
             .hero h1 { font-size: 2.1rem; }
@@ -157,6 +159,7 @@
             .nav-links { display: none; }
             .contact-details-grid { grid-template-columns: 1fr; gap: 2.5rem; }
             .contact-header h2 { font-size: 2.2rem; }
+            .booking-form { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -321,7 +324,7 @@
             <div class="contact-info-list">
                 <div class="info-group">
                     <label>WHATSAPP</label>
-                    <p><a href="https://wa.me/918544157071" target="_blank">+91 8544157071</a></p>
+                    <p><a href="https://wa.me/91854415707X" target="_blank">+91 854415707X</a></p>
                 </div>
                 <div class="info-group">
                     <label>EMAIL</label>
@@ -346,6 +349,4 @@
 
                 <div class="form-group">
                     <label>Service needed</label>
-                    <select id="serviceSelected" class="form-control">
-                        <option value="Full political campaign handling">Full political campaign handling</option>
-                        <option valu
+                    <select id="service
