@@ -7,14 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --primary: #0284c7;
-            --primary-hover: #0369a1;
+            --bg-dark: #0b1329;
+            --bg-card: #152238;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --accent: #22c55e;
-            --border: #334155;
+            --border: #1e293b;
+            --input-bg: #0f172a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -28,22 +29,25 @@
         }
 
         /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 5%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); }
-        .logo { font-size: 1.4rem; font-weight: 800; color: var(--text-main); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 5%; background: rgba(11, 19, 41, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); }
+        .logo { font-size: 1.3rem; font-weight: 800; color: var(--text-main); letter-spacing: 0.5px; }
         .logo span { color: var(--primary); }
         .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 1.8rem; font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--text-main); }
-        .btn-cta { background: var(--primary); color: #fff; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; text-decoration: none; transition: 0.3s; }
-        .btn-cta:hover { background: var(--primary-hover); }
+        
+        .btn-header { border: 1px solid var(--primary); color: var(--text-main); padding: 0.5rem 1.2rem; border-radius: 6px; font-weight: 600; text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
+        .btn-header:hover { background: var(--primary); }
 
         /* Hero Section */
         .hero { padding: 4rem 5%; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center; max-width: 1250px; margin: 0 auto; }
-        .badge { display: inline-block; background: rgba(2, 132, 199, 0.15); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; border: 1px solid rgba(2, 132, 199, 0.3); }
+        .badge { display: inline-block; background: rgba(37, 99, 235, 0.15); color: #38bdf8; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; border: 1px solid rgba(56, 189, 248, 0.3); }
         .hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
-        .hero h1 span { color: var(--primary); }
+        .hero h1 span { color: #38bdf8; }
         .hero p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.8rem; }
         .hero-btns { display: flex; gap: 1rem; }
-        .btn-secondary { border: 1px solid var(--border); color: var(--text-main); padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
+        .btn-primary { background: var(--primary); color: #fff; padding: 0.7rem 1.4rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .btn-primary:hover { background: var(--primary-hover); }
+        .btn-secondary { border: 1px solid var(--border); color: var(--text-main); padding: 0.7rem 1.4rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
 
         /* Instagram Mobile Frame */
         .instagram-mobile-mockup {
@@ -56,7 +60,7 @@
             margin: 0 auto;
             color: #fff;
             animation: floatMobile 5s ease-in-out infinite;
-            box-shadow: 0 0 25px rgba(2, 132, 199, 0.25);
+            box-shadow: 0 0 25px rgba(37, 99, 235, 0.25);
         }
         .phone-header { display: flex; justify-content: space-between; align-items: center; padding: 2px 8px 8px; }
         .phone-notch { width: 70px; height: 10px; background: #1e293b; border-radius: 10px; margin: 0 auto; }
@@ -69,60 +73,76 @@
         .blue-tick { color: #3897f0; }
         .ig-post-image { position: relative; border-radius: 6px; overflow: hidden; margin: 6px 0; }
         .ig-post-image img { width: 100%; height: 230px; object-fit: cover; display: block; }
-        .ig-reach-badge { position: absolute; top: 8px; right: 8px; background: rgba(2, 132, 199, 0.9); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 3px 6px; border-radius: 4px; }
+        .ig-reach-badge { position: absolute; top: 8px; right: 8px; background: rgba(37, 99, 235, 0.9); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 3px 6px; border-radius: 4px; }
         .ig-post-actions { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.9rem; }
         .ig-post-stats { font-size: 0.75rem; text-align: left; }
 
-        /* Sections */
+        /* General Section */
         section { padding: 4rem 5%; max-width: 1250px; margin: 0 auto; }
         .section-title { margin-bottom: 2rem; }
         .section-title span { color: var(--primary); font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 0.4rem; }
         .section-title h2 { font-size: 2rem; font-weight: 700; }
 
+        /* Services Grid */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
         .service-card { background: var(--bg-card); padding: 1.8rem; border-radius: 10px; border: 1px solid var(--border); transition: 0.3s; }
         .service-card:hover { border-color: var(--primary); transform: translateY(-5px); }
 
-        /* 16:9 Standard Video Player Box */
+        /* Video Box */
         .video-showcase-box { background: var(--bg-card); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border); margin-bottom: 3rem; }
-        .video-player-container { 
-            width: 100%; 
-            aspect-ratio: 16 / 9; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            background: #000; 
-            border: 1px solid var(--border);
-            position: relative;
-        }
-        .video-player-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+        .video-player-container { width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid var(--border); position: relative; }
+        .video-player-container video { width: 100%; height: 100%; object-fit: contain; }
         .playlist-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; margin-top: 1.2rem; }
         .playlist-btn { background: #0f172a; color: var(--text-main); padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); text-align: center; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
-        .playlist-btn:hover, .playlist-btn.active { border-color: var(--primary); background: rgba(2, 132, 199, 0.15); color: var(--primary); }
+        .playlist-btn:hover, .playlist-btn.active { border-color: var(--primary); background: rgba(37, 99, 235, 0.15); color: #38bdf8; }
 
-        /* 5 Photos Grid Section */
+        /* 5 Photos Grid */
         .grid-5 { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
         .media-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; }
         .media-card:hover { transform: translateY(-5px); border-color: var(--primary); }
         .media-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
         .media-card .info { padding: 0.8rem; font-size: 0.85rem; }
 
+        /* Process Grid */
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
         .process-step { background: var(--bg-card); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--primary); }
 
         .nda-box { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); padding: 1.2rem; border-radius: 8px; margin: 2rem 0; text-align: center; color: var(--accent); font-weight: 600; }
 
-        .contact-box { background: var(--bg-card); padding: 3rem 1.5rem; border-radius: 12px; border: 1px solid var(--border); text-align: center; }
-        footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem 5%; color: var(--text-muted); font-size: 0.85rem; margin-top: 3rem; }
+        /* Contact Section matching Screenshot 1 & 2 */
+        .contact-section { padding: 4rem 5%; max-width: 1250px; margin: 0 auto; }
+        .contact-header { margin-bottom: 2.5rem; }
+        .contact-header span { color: var(--primary); font-size: 0.9rem; font-weight: 700; display: block; margin-bottom: 0.5rem; }
+        .contact-header h2 { font-size: 2.8rem; font-weight: 700; margin-bottom: 0.8rem; font-family: 'Times New Roman', serif; }
+        .contact-header p { color: var(--text-muted); max-width: 650px; font-size: 1rem; }
 
-        @media (max-width: 768px) {
+        .contact-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+        
+        .contact-info-list { display: flex; flex-direction: column; gap: 1.8rem; }
+        .info-group label { color: var(--text-muted); font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 700; display: block; margin-bottom: 0.3rem; text-transform: uppercase; }
+        .info-group p, .info-group a { font-size: 1.1rem; color: var(--text-main); font-weight: 600; text-decoration: none; }
+        .info-group a:hover { color: #38bdf8; }
+
+        /* Form Controls */
+        .booking-form { display: flex; flex-direction: column; gap: 1.2rem; }
+        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+        .form-group label { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
+        .form-control { background: var(--input-bg); border: 1px solid var(--border); padding: 0.9rem 1rem; border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none; transition: 0.3s; width: 100%; }
+        .form-control:focus { border-color: var(--primary); }
+        select.form-control { cursor: pointer; }
+
+        .btn-submit { background: var(--primary); color: #fff; padding: 1rem; border-radius: 8px; border: none; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.3s; margin-top: 0.5rem; }
+        .btn-submit:hover { background: var(--primary-hover); }
+
+        footer { border-top: 1px solid var(--border); text-align: center; padding: 2.5rem 5%; color: var(--text-muted); font-size: 0.85rem; margin-top: 4rem; }
+
+        @media (max-width: 850px) {
             .hero { grid-template-columns: 1fr; text-align: center; }
             .hero h1 { font-size: 2.1rem; }
             .hero-btns { justify-content: center; }
             .nav-links { display: none; }
+            .contact-details-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .contact-header h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -137,7 +157,7 @@
             <a href="#process">Process</a>
             <a href="#contact">Contact</a>
         </div>
-        <a href="https://wa.me/919999999999" target="_blank" class="btn-cta">WhatsApp Call</a>
+        <a href="#contact" class="btn-header">Book Campaign Strategy</a>
     </nav>
 
     <!-- Hero Section -->
@@ -147,7 +167,7 @@
             <h1>We Build Winning <span>Digital Narratives</span> for Political Leaders.</h1>
             <p>Vscan Alliance provides 100% confidential and result-oriented social media management, narrative building, micro-targeted ad campaigns, and online reputation management.</p>
             <div class="hero-btns">
-                <a href="https://wa.me/919999999999" target="_blank" class="btn-cta">Book Strategy Call →</a>
+                <a href="#contact" class="btn-primary">Book Strategy Call →</a>
                 <a href="#portfolio" class="btn-secondary">View Portfolio</a>
             </div>
         </div>
@@ -163,7 +183,7 @@
                         <div class="ig-avatar">
                             <img src="myprofile.jpg" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80'" alt="Leader">
                         </div>
-                        <span class="ig-username">ianishanand <span class="blue-tick">✓</span></span>
+                        <span class="ig-username">leader_official <span class="blue-tick">✓</span></span>
                     </div>
                 </div>
                 <div class="ig-post-image">
@@ -275,18 +295,61 @@
         </div>
     </section>
 
-    <!-- Contact & Footer -->
-    <section id="contact">
-        <div class="contact-box">
-            <h2>Ready to Elevate Your Digital Presence?</h2>
-            <p style="color:var(--text-muted); margin: 1rem 0 1.5rem;">Contact us confidentially for campaign management.</p>
-            <a href="https://wa.me/919999999999" target="_blank" class="btn-cta">Chat on WhatsApp Direct →</a>
+    <!-- Contact & Booking Section (Matching Screenshot) -->
+    <section class="contact-section" id="contact">
+        <div class="contact-header">
+            <span>// CONTACT</span>
+            <h2>Let's handle your feed.</h2>
+            <p>Fill the form and it'll open a pre-filled WhatsApp message straight to us — or reach out directly below.</p>
+        </div>
+
+        <div class="contact-details-grid">
+            <!-- Left Side: Directly Contact Info -->
+            <div class="contact-info-list">
+                <div class="info-group">
+                    <label>WHATSAPP</label>
+                    <p><a href="https://wa.me/919999999999" target="_blank">+91 XXXXX XXXXX</a></p>
+                </div>
+                <div class="info-group">
+                    <label>EMAIL</label>
+                    <p><a href="mailto:hello@vscanalliance.com">hello@vscanalliance.com</a></p>
+                </div>
+                <div class="info-group">
+                    <label>INSTAGRAM</label>
+                    <p><a href="https://instagram.com/vscanalliance" target="_blank">@vscanalliance</a></p>
+                </div>
+            </div>
+
+            <!-- Right Side: Booking Form -->
+            <form class="booking-form" onsubmit="sendWhatsAppBooking(event)">
+                <div class="form-group">
+                    <label>Your name</label>
+                    <input type="text" id="clientName" class="form-control" placeholder="Full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone or email</label>
+                    <input type="text" id="clientContact" class="form-control" placeholder="How we reach you" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Service needed</label>
+                    <select id="serviceSelected" class="form-control">
+                        <option value="Full political campaign handling">Full political campaign handling</option>
+                        <option value="Content & War Room Design">Content & War Room Design</option>
+                        <option value="Ground & Community Narrative">Ground & Community Narrative</option>
+                        <option value="Micro-Targeted Election Ads">Micro-Targeted Election Ads</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">Send via WhatsApp →</button>
+            </form>
         </div>
     </section>
 
     <footer>
         <p>© 2026 Vscan Alliance. All rights reserved.</p>
-        <p style="color: var(--primary); margin-top:0.4rem;">SPECIALIZED POLITICAL DIGITAL PR & ELECTION CAMPAIGN AGENCY</p>
+        <p style="color: var(--primary); margin-top:0.4rem; font-family: monospace;">BUILT FOR SOCIAL MEDIA HANDLING</p>
     </footer>
 
     <script>
@@ -300,6 +363,19 @@
             var btns = document.querySelectorAll('.playlist-btn');
             btns.forEach(function(btn) { btn.classList.remove('active'); });
             element.classList.add('active');
+        }
+
+        // Send Form Data directly to WhatsApp Message
+        function sendWhatsAppBooking(e) {
+            e.preventDefault();
+            var name = document.getElementById('clientName').value;
+            var contact = document.getElementById('clientContact').value;
+            var service = document.getElementById('serviceSelected').value;
+
+            var phoneNum = "919999999999"; // Change with your real WhatsApp number
+            var message = `Hello Vscan Alliance,%0A%0AI want to book campaign strategy:%0A- *Name:* ${name}%0A- *Contact:* ${contact}%0A- *Service Needed:* ${service}`;
+
+            window.open(`https://wa.me/${phoneNum}?text=${message}`, '_blank');
         }
     </script>
 </body>
